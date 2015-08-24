@@ -1,0 +1,20 @@
+<!doctype html>
+<head>
+  <title> graph </title>
+  <h1> this should be a graph</h1>
+</head>
+<body>
+  <div class="container">
+      <!--- graph goes here -->
+      <p>
+      <!--- FIXME-->
+      {{ data }}
+      </p>
+  </div>
+  <script src={{ url_for('static', filename='./bower_components/jquery/dist/jquery.min.js') }}></script>
+  <script src={{ url_for('static', filename='./bower_components/bootstrap/dist/js/bootstrap.min.js') }}></script>
+  <script src={{ url_for('static', filename='./bower_components/d3/d3.min.js') }}></script>
+  <script src={{ url_for('static', filename='main.js')
+}}></script>
+
+</body>

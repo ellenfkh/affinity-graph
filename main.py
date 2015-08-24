@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 from manage_data import load_from_file
 app = Flask(__name__)
 
@@ -8,11 +8,10 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/data')
-@app.route('/data/<filename>')
-def load_jsonfy_data(filename=None):
-    filepath = "data/" + filename
-    return jsonify(load_from_file(filepath))
+@app.route('/graph/<filename>')
+def disply_graph(filename):
+    json_data = load_from_file(filename)
+    return render_template("graph.html", data=json_data)
 
 
 if __name__ == '__main__':

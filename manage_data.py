@@ -1,17 +1,22 @@
 # operations for updating and loading data
 import json
+import os.path
 
 
 def load_from_file(filename):
-    print "loading " + filename
-    with open(filename, 'r') as f:
-        json_data = json.loads(f.read())
-        print json_data
+    with open("data/" + filename, 'r') as infile:
+        json_data = json.loads(infile.read())
 
     return json_data
 
 
-def write_to_file(filename, graph):
-    # graph is dict
-    # may overwrite (ask for confirmation?)
-    pass
+# TODO hasn't been used/tested yet
+def write_to_file(filename, graph, overwrite=True):
+    if os.path.isfile(filename) and not overwrite:
+        return graph
+
+    else:
+        with open(filename, 'w') as outfile:
+            json.dumps(graph, outfile)
+
+    return graph
